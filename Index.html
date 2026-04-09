@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Detallado Automotriz Pro | Brillo y protección Premium</title>
+  <!-- Fuentes y estilos -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f0f5f9;
+      color: #102b36;
+      padding: 2rem 1.5rem;
+      line-height: 1.4;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Header con fondo y diseño llamativo */
+    .hero {
+      background: linear-gradient(135deg, #0a2e3f 0%, #166b5c 100%);
+      border-radius: 48px;
+      padding: 2rem 2rem 2rem 2rem;
+      margin-bottom: 2.5rem;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+    }
+    .hero-text {
+      flex: 2;
+    }
+    .hero-text h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hero-text h1 i {
+      font-size: 2.8rem;
+      color: #FFD966;
+    }
+    .hero-text p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      opacity: 0.9;
+    }
+    .hero-badge {
+      background: rgba(255,255,240,0.2);
+      backdrop-filter: blur(4px);
+      padding: 0.5rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+    .hero-img {
+      flex: 1;
+      text-align: right;
+    }
+    .hero-img img {
+      max-width: 220px;
+      border-radius: 32px;
+      box-shadow: 0 12px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+    .hero-img img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Grid de tarjetas */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    /* Tarjeta moderna */
+    .service-card {
+      background: white;
+      border-radius: 36px;
+      overflow: hidden;
+      box-shadow: 0 18px 30px -12px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 28px 40px -16px rgba(0, 48, 48, 0.25);
+    }
+    .card-img {
+      height: 180px;
+      overflow: hidden;
+      background-color: #d9e3e8;
+    }
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .service-card:hover .card-img img {
+      transform: scale(1.05);
+    }
+    .card-header {
+      padding: 1.3rem 1.5rem 0.5rem 1.5rem;
+    }
+    .card-header h2 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      color: #0e3b44;
+    }
+    .price-tag {
+      font-size: 1.2rem;
+      font-weight: 800;
+      background: #e9f2f5;
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      margin-top: 10px;
+      color: #1a6d5e;
+    }
+    .card-body {
+      padding: 0.8rem 1.5rem 1.5rem 1.5rem;
+      flex: 1;
+    }
+    .service-list {
+      list-style: none;
+      margin: 0;
+    }
+    .service-list li {
+      padding: 0.55rem 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px dashed #e2ecf0;
+      font-size: 0.93rem;
+      font-weight: 500;
+      color: #1e4a58;
+    }
+    .service-list li i {
+      color: #1e886f;
+      font-size: 0.9rem;
+      width: 22px;
+    }
+    .btn-cta {
+      background: #102b36;
+      color: white;
+      border: none;
+      padding: 0.75rem 1rem;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 1rem;
+      width: 100%;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .btn-cta i {
+      font-size: 1.1rem;
+    }
+    .btn-cta:hover {
+      background: #1e6f5c;
+      transform: scale(0.98);
+    }
+    .extra-contact-card {
+      background: linear-gradient(120deg, #fff9ef, #fff5e6);
+      border-radius: 36px;
+      padding: 1.8rem;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ffe0b5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .extra-text {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .extra-text i {
+      font-size: 2.8rem;
+      color: #cb7b1f;
+    }
+    .extra-text h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #78440e;
+    }
+    .btn-contact-seller {
+      background: #cb7b1f;
+      color: white;
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: 0.2s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .btn-contact-seller:hover {
+      background: #a56012;
+      transform: scale(1.02);
+    }
+    .contact-bar {
+      background: #eef2f5;
+      border-radius: 40px;
+      padding: 1.3rem 1.8rem;
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .contact-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 60px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+    .contact-info:hover {
+      transform: scale(1.02);
+      background: #fefefe;
+    }
+    .contact-info a {
+      text-decoration: none;
+      color: #1a2c3e;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+    .contact-info a:hover {
+      color: #1e6f5c;
+    }
+    .telegram-user {
+      font-weight: 800;
+      background: #e6f4f0;
+      border-radius: 60px;
+      padding: 0.5rem 1.2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .footer-note {
+      text-align: center;
+      margin-top: 2.5rem;
+      font-size: 0.8rem;
+      color: #5f7e8c;
+      border-top: 1px solid #cde0e8;
+      padding-top: 2rem;
+    }
+    @media (max-width: 800px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-img {
+        margin-top: 1.5rem;
+        text-align: center;
+      }
+      .hero-img img {
+        max-width: 180px;
+      }
+      .extra-contact-card {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- Encabezado con imagen de auto llamativa -->
+  <div class="hero">
+    <div class="hero-text">
+      <h1><i class="fas fa-spray-can-sparkles"></i> Detallado Automotriz Pro</h1>
+      <p>Brillo extremo, cuidado profesional y productos de alta gama</p>
+      <div class="hero-badge"><i class="fas fa-star"></i> +300 autos brillados | Satisfacción garantizada</div>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=400&auto=format" alt="Auto deportivo brillante">
+    </div>
+  </div>
+
+  <!-- GRID DE SERVICIOS con imágenes reales llamativas -->
+  <div class="services-grid">
+    
+    <!-- PAQUETE BÁSICO $150 -->
+    <div class="service-card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&auto=format" alt="Lavado básico">
+      </div>
+      <div class="card-header">
+        <h2><i class="fas fa-car-side"></i> Paquete Básico</h2>
+        <div class="price-tag"><i class="fas fa-tag"></i> $150 MXN</div>
+      </div>
+      <div class="card-body">
+        <ul class="service-list">
+          <li><i class="fas fa-hand-sparkles"></i> Limpieza externa completa</li>
+          <li><i class="fas fa-water"></i> Lavado extremo con shampoo premium</li>
+          <li><i class="fas fa-circle"></i> Lavado de llantas a detalle mínimo</li>
+          <li><i class="fas fa-microfiber"></i> Secado profesional con microfibra</li>
+          <li><i class="fas fa-star"></i> Todo a detalle mínimo</li>
+          <li><i class="fas fa-flask"></i> Se usan productos premium</li>
+        </ul>
+        <a href="https://wa.me/524731134565?text=Hola%2C%20me%20interesa%20el%20PAQUETE%20B%C3%81SICO%20de%20$150" target="_blank" class="btn-cta"><i class="fab fa-whatsapp"></i> Lo quiero por $150</a>
+      </div>
+    </div>
+
+    <!-- SUPER LAVADO $250 -->
+    <div class="service-card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&auto=format" alt="Super lavado brillante">
+      </div>
+      <div class="card-header">
+        <h2><i class="fas fa-bolt"></i> Super Lavado</h2>
+        <div class="price-tag"><i class="fas fa-tag"></i> $250 MXN</div>
+      </div>
+      <div class="card-body">
+        <ul class="service-list">
+          <li><i class="fas fa-couch"></i> Detallado interno completo</li>
+          <li><i class="fas fa-car"></i> Detallado externo completo</li>
+          <li><i class="fas fa-circle"></i> Lavado de llantas con detallado</li>
+          <li><i class="fas fa-eye"></i> Detallado de vidrios y parabrisas</li>
+          <li><i class="fas fa-tint"></i> Cera líquida en toda la carrocería</li>
+        </ul>
+        <a href="https://wa.me/524731134565?text=Hola%2C%20me%20interesa%20el%20SUPER%20LAVADO%20de%20$250" target="_blank" class="btn-cta"><i class="fab fa-whatsapp"></i> Pedir Super Lavado</a>
+      </div>
+    </div>
+
+    <!-- PAQUETE PREMIUM AUTO $1,500 -->
+    <div class="service-card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=600&auto=format" alt="Auto premium">
+      </div>
+      <div class="card-header">
+        <h2><i class="fas fa-gem"></i> Premium Auto</h2>
+        <div class="price-tag"><i class="fas fa-tag"></i> $1,500 MXN</div>
+      </div>
+      <div class="card-body">
+        <ul class="service-list">
+          <li><i class="fas fa-couch"></i> Limpieza detallada de interiores</li>
+          <li><i class="fas fa-car"></i> Lavado premium externo</li>
+          <li><i class="fas fa-circle"></i> Lavado de llantas Premium</li>
+          <li><i class="fas fa-hand-sparkles"></i> Descontaminación de pintura (clay bar)</li>
+          <li><i class="fas fa-sync-alt"></i> Pulido de pintura (elimina swirls)</li>
+          <li><i class="fas fa-shield-alt"></i> Recubrimiento con cera de alta calidad</li>
+          <li><i class="fas fa-tint"></i> Pulido de vidrios</li>
+        </ul>
+        <a href="https://wa.me/524731134565?text=Hola%2C%20me%20interesa%20el%20PAQUETE%20PREMIUM%20para%20auto%20($1%2C500)" target="_blank" class="btn-cta"><i class="fab fa-whatsapp"></i> Cotizar Premium Auto</a>
+      </div>
+    </div>
+
+    <!-- PAQUETE PREMIUM CAMIONETA $2,200 -->
+    <div class="service-card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&auto=format" alt="Camioneta brillante">
+      </div>
+      <div class="card-header">
+        <h2><i class="fas fa-truck"></i> Premium Camioneta</h2>
+        <div class="price-tag"><i class="fas fa-tag"></i> $2,200 MXN</div>
+      </div>
+      <div class="card-body">
+        <ul class="service-list">
+          <li><i class="fas fa-check-circle"></i> Todo lo incluido en Premium Auto</li>
+          <li><i class="fas fa-couch"></i> Limpieza detallada de interiores (mayor superficie)</li>
+          <li><i class="fas fa-hand-sparkles"></i> Descontaminación + pulido profesional</li>
+          <li><i class="fas fa-shield-alt"></i> Recubrimiento con cera de alta calidad</li>
+          <li><i class="fas fa-tint"></i> Pulido de vidrios y detalles extra</li>
+        </ul>
+        <a href="https://wa.me/524731134565?text=Hola%2C%20me%20interesa%20el%20PAQUETE%20PREMIUM%20para%20CAMIONETA%20($2%2C200)" target="_blank" class="btn-cta"><i class="fab fa-whatsapp"></i> Reservar Camioneta</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN: SERVICIO ADICIONAL - CONTACTAR VENDEDOR -->
+  <div class="extra-contact-card">
+    <div class="extra-text">
+      <i class="fas fa-concierge-bell"></i>
+      <div>
+        <h3>¿Buscas otro servicio adicional?</h3>
+        <p style="color:#5c3b10; font-weight:500;">Pulido de faros, recubrimiento cerámico, tratamiento de pintura, limpieza de tapicería especial, etc.</p>
+      </div>
+    </div>
+    <a href="https://wa.me/524731134565?text=Hola%2C%20me%20interesa%20un%20SERVICIO%20ADICIONAL%20especializado%2C%20por%20favor%20dame%20informes" target="_blank" class="btn-contact-seller">
+      <i class="fab fa-whatsapp"></i> Contactar con el vendedor
+    </a>
+  </div>
+
+  <!-- BARRA DE CONTACTO con WhatsApp, Teléfono, Correo y NUEVO TELEGRAM -->
+  <div class="contact-bar">
+    <div class="contact-info">
+      <i class="fab fa-whatsapp"></i>
+      <a href="https://wa.me/524731134565" target="_blank">WhatsApp: 473 113 4565</a>
+    </div>
+    <div class="contact-info">
+      <i class="fas fa-phone-alt"></i>
+      <a href="tel:+524731134565">Llámanos: 473 113 4565</a>
+    </div>
+    <div class="contact-info">
+      <i class="fas fa-envelope"></i>
+      <a href="mailto:rockyavaya@gmail.com">rockyavaya@gmail.com</a>
+    </div>
+    <!-- NUEVO APARTADO DE TELEGRAM con el usuario solicitado -->
+    <div class="contact-info">
+      <i class="fab fa-telegram-plane"></i>
+      <a href="https://t.me/xEl_MEXICANOx" target="_blank">Telegram: @xEl_MEXICANOx</a>
+    </div>
+    <div class="contact-info">
+      <i class="fas fa-map-marker-alt"></i>
+      <span>Servicio a domicilio / Taller</span>
+    </div>
+  </div>
+
+  <!-- Pie de página con datos completos -->
+  <div class="footer-note">
+    <i class="fas fa-check-circle"></i> Productos premium | Atención personalizada | Cotiza sin compromiso <br>
+    <strong>Contacto directo:</strong> 473 113 4565 | rockyavaya@gmail.com | Telegram: @xEl_MEXICANOx <br>
+    *Precios sujetos a tipo de vehículo y condiciones, aplica previa cotización.
+  </div>
+</div>
+
+<script>
+  console.log("Catálogo actualizado: precio básico $150, sin lavado de motor, sección adicional y contacto por Telegram: @xEl_MEXICANOx");
+</script>
+</body>
+</html>
